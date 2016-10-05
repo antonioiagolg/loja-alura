@@ -1,10 +1,20 @@
 <?php require_once("cabecalho.php"); 
 require_once("banco-categoria.php");
 require_once("logica-usuario.php");
+require_once('class/Produto.php');
+require_once('class/Categoria.php');
 
 verificaUsuario();
-$produto = array("nome" => "", "descricao" => "", "preco" => "", "categoria_id" => "1");
-$usado = "";
+
+$produto   = new Produto();
+$categoria = new Categoria();
+
+$produto->nome      = "";
+$produto->descricao = "";
+$produto->preco     = "";
+$produto->usado     = "";
+$categoria->id      = 1;
+$produto->categoria = $categoria;
 
 $categorias = listaCategorias($conexao);
 ?>			
